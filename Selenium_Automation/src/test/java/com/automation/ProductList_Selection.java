@@ -12,9 +12,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.test.LoginfunctionTest_1001;
 import com.util.HighLighter;
 
-public class ProductList_Selection extends LoginfunctionTest {
+
+public class ProductList_Selection extends LoginfunctionTest_1001 {
 
 	static WebDriver driver;
 
@@ -22,7 +24,7 @@ public class ProductList_Selection extends LoginfunctionTest {
 
 
 		ProductList_Selection obj = new ProductList_Selection();
-		driver = obj.login(driver);
+		//driver = obj.login(driver);
 		Thread.sleep(1500);
 		
 		

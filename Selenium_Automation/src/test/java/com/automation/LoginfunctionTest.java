@@ -1,19 +1,21 @@
 package com.automation;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.util.HighLighter;
 
+
+
 public class LoginfunctionTest {
 
-	public static WebDriver login(WebDriver driver) throws Throwable {
+	WebDriver driver;
+	@Test
+	public void login_1002()throws Throwable {
 
 		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 		driver = new ChromeDriver();
@@ -78,7 +80,6 @@ public class LoginfunctionTest {
 		}
 
 	
-		return driver;
 
 	}
 

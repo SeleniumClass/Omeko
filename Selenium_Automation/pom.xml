@@ -3,12 +3,14 @@
   <groupId>Selenium_Automation</groupId>
   <artifactId>Selenium_Automation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+  <properties>
+  <maven.test.skip>false</maven.test.skip>
+  </properties>
 <repositories>
  <repository>
  <id>aspose-maven-repository</id>
  <name>Aspose Maven Repository</name>
- <url>https://artifact.aspose.com/repo/</url>
+ <url>http://artifact.aspose.com/repo/</url>
  
  </repository>
 
@@ -86,7 +88,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>6.14.2</version>
-    <scope>test</scope>
+  <!--   <scope>test</scope> -->
 </dependency>
 
   <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
@@ -141,22 +143,24 @@
     <plugins>
    
 			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
+					<verbose>false</verbose>
 				</configuration>
 			</plugin>
-      <plugin>
+     <!--  <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.20.1</version>
         <configuration>
-          <!-- <includes>
+          <includes>
             <include>**/*Runner.java</include>
-          </includes> -->
+          </includes>
            <suiteXmlFiles>
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>
@@ -184,9 +188,48 @@
             </configuration>
           </execution>
         </executions>
+      </plugin> -->
+ 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+             </execution>
+        </executions>
+            <configuration>
+            
+              <finalName>uber-${project.artifactId}</finalName>
+              <verbose>false</verbose>
+              <filters>
+              <filter>
+              <artifact>*:*</artifact>
+             
+                <excludes>
+                  <exclude>**/*.passwd</exclude>
+                  <exclude>META-INF/*.SF</exclude>
+                  <exclude>META-INF/*.DSA</exclude>
+                  <exclude>META-INF/*.RSA</exclude>
+                  <exclude>org.apache.maven:lib:tests</exclude>
+                  <exclude>lMETA-INF/org/apache/logging/log4j/core/config/plugins/Log4jPlugins.dat</exclude>
+                </excludes>
+                 </filter>
+              </filters>
+                <artifactSet>
+                <excludes>
+                <exclude>org.mongodb:*</exclude>
+                </excludes>
+              </artifactSet>
+            </configuration>
+         
       </plugin>
-     
     </plugins>
+
   </build>
   
   
