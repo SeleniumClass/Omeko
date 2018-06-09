@@ -14,9 +14,10 @@ public class Testdatatype {
 	
 	
 	String a ="5000.66";
-	int s=Integer.parseInt(a);
-	int f= mysalary/2;
+	double s =Double.parseDouble(a);
+	double f= s/2;
 	System.out.println(f);
 	}
+
 
 }
