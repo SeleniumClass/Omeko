@@ -15,20 +15,10 @@ import org.openqa.selenium.support.ui.Select;
 public class DropDownMenu {
 
 	public static void main(String[] args) throws InterruptedException {
-/*
-		File pathToBinary = new File("C:\\Program Files\\Mozilla Firefox\\firefox-sdk\\bin\\firefox.exe");
-		FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
-		FirefoxProfile firefoxProfile = new FirefoxProfile();
 
-		
-		
-		WebDriver driver = new FirefoxDriver(ffBinary, firefoxProfile);
-		*/
 			 
 		WebDriver driver=new FirefoxDriver();
 		
-		// Put an Implicit wait, 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
  
 		// Launch the URL
 		driver.get("http://toolsqa.wpengine.com/automation-practice-form");

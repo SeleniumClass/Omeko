@@ -6,7 +6,7 @@ import org.openqa.selenium.support.How;
 
 public class Pagefactory {
 	
-	@FindBy(how = How.XPATH, using = "(//*[contains(text(),'Sign In')])[2]")
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Sign In')]")
 	private WebElement signInbtn;
 
 	public WebElement getSignInbtn() {
